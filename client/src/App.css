@@ -1,0 +1,33 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+
+.App{
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  /* border: 2px solid black; */
+  /* background-color: rgb(255, 245, 245); */
+}
+
+.nav-container{
+  /* display: flex; */
+  /* display: block; */
+  position: fixed;
+  /* width: 18%; */
+  height: 100vh;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* z-index: 1; */
+  /* border: 2px solid black; */
+  /* display: flex; */
+}
+
+.views{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid black; */
+}
