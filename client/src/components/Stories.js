@@ -20,11 +20,11 @@ const story = [
 function Stories(){
     const stories = story.map(item=>
     <div className="st-item">
-    <div id="gradient-ring">
-    <div className="story">
-        <img id="post-profile" alt="profile" src={item.profile}></img>
-    </div>
-    </div>
+        <div id="gradient-ring">
+            <div className="story">
+                <img id="post-profile" alt="profile" src={item.profile}></img>
+            </div>
+        </div>
         <h5>{item.name}</h5>
     </div>
     )

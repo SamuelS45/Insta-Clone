@@ -20,9 +20,10 @@ function App() {
       <div className='views'>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/search' element={<Search/>}/>
+        {/* <Route path='/search' element={<Search/>}/> */}
         <Route path='/explore' element={<Explore/>}/>
       </Routes>
+        {/* <button><Search/></button> */}
       </div>
     </div>
   );

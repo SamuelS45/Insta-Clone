@@ -22,10 +22,34 @@ function Search(){
     // useEffect(()=>{
     //     setData({})
     // },[])
-    const test=['lovesxx','love']
+    const test=[
+        {
+            name:'lovesxx',
+            img:'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=600'
+        },
+        {
+            name:'love',
+            img:'https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&w=600'
+        }
+    ]
     const listRecents = test.map(item=>
-    <li key={item.toString}>{item}
-        <button><Delete size={size}/></button>    
+    <li id="s-li" key={item.toString}>
+        <div id="s-space">
+
+        <div className="s-item">
+            <div id="gradient-ring">
+                <div className="story">
+                {/* <img id="post-profile" alt="profile" src={item.profile}></img> */}
+                    <img id="post-profile"  src={item.img} alt={item.img.toString}></img>
+            </div>
+        </div>
+        </div>
+        <div>
+
+        {item.name}
+        </div>
+        <button id="s-btn-delete"><Delete size={size}/></button>    
+        </div>
     </li>
     )
     return(
@@ -45,7 +69,7 @@ function Search(){
             </div>
         {/* <h5>{recents}</h5> */}
         </div>
-        <ul>
+        <ul id="s-ul">
             {listRecents}
         </ul>
         </div>
