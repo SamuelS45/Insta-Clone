@@ -8,6 +8,7 @@ import Search from './components/Search';
 import Reels from './Pages/Reels'
 import{Routes,Route,} from 'react-router-dom';
 import Explore from './Pages/Explore';
+import Message from './Pages/Messages';
 // import Home from './Pages/Home';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         {/* <Route path='/search' element={<Search/>}/> */}
         <Route path='/explore' element={<Explore/>}/>
         <Route path='/reels' element={<Reels/>}/>
+        <Route path='/message' element={<Message/>}/>
       </Routes>
         {/* <button><Search/></button> */}
       </div>

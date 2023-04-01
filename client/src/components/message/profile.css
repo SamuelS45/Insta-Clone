@@ -1,0 +1,18 @@
+
+
+
+
+#p-img-c{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#p-img{
+    width: 100px;
+}
+#p-c{
+    border: 2px solid black;
+    display: flex;
+    width: 200px;
+}

@@ -191,7 +191,7 @@ const[width,setWidth] = useState('0px')
                     </NavLink>
                 </li>
                 <li className="nav-li">
-                    <NavLink className="nav-link" to={'/search'}><Message style={{color:'black'}} size={size}/>
+                    <NavLink className="nav-link" to={'/message'}><Message style={{color:'black'}} size={size}/>
                     
                     <h5 className="nav-title">Message</h5>
                     </NavLink>
