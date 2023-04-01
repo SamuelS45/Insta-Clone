@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react"
+
+import React, { useEffect, useState, memo } from "react"
 import './post.css'
 import {AiFillHeart as Heart} from 'react-icons/ai'
 import {AiOutlineHeart as HeartOutline} from 'react-icons/ai'
@@ -21,7 +22,7 @@ import {MdTagFaces as Face} from 'react-icons/md'
 //     created:'2 HOURS AGO'
 // }
 function Post({data}){
-    const {profileImg, post, name, alt, likes, des , numComments, created} = data;
+    const {profileImg, post, name, alt, likes, des , numComments, created} = data||{};
     const[heart, setHeart] = useState(false)
     const[imgHeart, setImgHeart] = useState('0')
     const[icon, setIcon] = useState()
@@ -135,4 +136,4 @@ function Post({data}){
     )
 }
 
-export default Post
+export default memo(Post)

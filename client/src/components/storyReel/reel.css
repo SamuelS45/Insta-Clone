@@ -1,0 +1,15 @@
+
+#reel{
+    display: flex;
+    margin: 20px;
+    border: 2px solid black;
+    width: 300px;
+    height: 500px;
+}
+#r-li{
+    margin: 10px;
+    list-style: none;
+}
+video{
+    /* margin-right: 10px; */
+}

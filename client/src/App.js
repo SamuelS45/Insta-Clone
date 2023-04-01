@@ -5,7 +5,7 @@ import Comments from './components/Comments';
 import Home from './Pages/Home';
 import Nav from './components/Nav';
 import Search from './components/Search';
-
+import Reels from './Pages/Reels'
 import{Routes,Route,} from 'react-router-dom';
 import Explore from './Pages/Explore';
 // import Home from './Pages/Home';
@@ -22,6 +22,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         {/* <Route path='/search' element={<Search/>}/> */}
         <Route path='/explore' element={<Explore/>}/>
+        <Route path='/reels' element={<Reels/>}/>
       </Routes>
         {/* <button><Search/></button> */}
       </div>

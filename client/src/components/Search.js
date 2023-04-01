@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import './search.css'
 
 
@@ -76,4 +76,4 @@ function Search(){
     )
 }
 
-export default Search
+export default memo(Search)

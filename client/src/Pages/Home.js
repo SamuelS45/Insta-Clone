@@ -2,6 +2,8 @@ import React from "react";
 import Post from '../components/Post'
 // import Test from '../components/Test'
 import Stories from "../components/Stories";
+import ToggleMenu from "../components/ToggleMenu";
+import Com from "../components/Com";
 
 // const Data = {
 //     id:{
@@ -61,6 +63,8 @@ function Home(){
         {posts}
         {/* <PostD data={Data}/> */}
         {/* <Test data={data}/> */}
+        <ToggleMenu/>
+        <Com/>
     </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import './nav.css'
 // import Search from "./Search";
@@ -35,102 +35,116 @@ import {TiDeleteOutline as Delete} from 'react-icons/ti'
 
 const size = 30
 function Nav(){
-function Search(){
-    // const[data, setData]=useState([])
-    // useEffect(()=>{
-    //     setData({})
-    // },[])
-    const test=[
-        {
-            name:'lovesxx',
-            img:'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-            name:'love',
-            img:'https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&w=600'
-        }
-    ]
-    const listRecents = test.map(item=>
-    <li id="s-li" key={item.toString}>
-        <div id="s-space">
+    function Search(){
+        // const[data, setData]=useState([])
+        // useEffect(()=>{
+        //     setData({})
+        // },[])
+        const test=[
+            {
+                name:'lovesxx',
+                img:'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=600'
+            },
+            {
+                name:'love',
+                img:'https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&w=600'
+            }
+        ]
+        const listRecents = test.map(item=>
+            <li id="s-li" key={item.toString}>
+            <div id="s-space">
 
-        <div className="s-item">
-            <div id="gradient-ring">
-                <div className="story">
-                {/* <img id="post-profile" alt="profile" src={item.profile}></img> */}
-                    <img id="post-profile"  src={item.img} alt={item.img.toString}></img>
-            </div>
-        </div>
-        </div>
-        <div>
-
-        {item.name}
-        </div>
-        <button id="s-btn-delete"><Delete size={size}/></button>    
-        </div>
-    </li>
-    )
-    return(
-        <div style={{
-            display:`${display}`,
-            width:`${width}`,
-            opacity:`${opacity}`
-        }} className="search-container">
-            <div className="s-top">
-                <h1>Search</h1>
-                <div className="s-center">
-                <input className="search-box" placeholder="Search"></input>
-                <button className="search-clear"> <Delete style={{color:'grey'}} size={size}/></button>
+            <div className="s-item">
+                <div id="gradient-ring">
+                    <div className="story">
+                    {/* <img id="post-profile" alt="profile" src={item.profile}></img> */}
+                        <img id="post-profile"  src={item.img} alt={item.img.toString}></img>
                 </div>
             </div>
-        <hr></hr>
-        <div>
-            <div className="s-bottom-title">
-                <h3>Recent</h3>
-                <button id="comment-btn" style={{color:'rgb(129, 198, 221)'}}>Clear All</button>
             </div>
-        {/* <h5>{recents}</h5> */}
-        </div>
-        <ul id="s-ul">
-            {listRecents}
-        </ul>
-        </div>
-    )
-}
+            <div>
 
-    const[width,setWidth] = useState('0px')
+            {item.name}
+            </div>
+            <button id="s-btn-delete"><Delete size={size}/></button>    
+            </div>
+        </li>
+        )
+        const[text,setText]= useState()
+        return(
+            <div style={{
+                display:`${display}`,
+                width:`${width}`,
+                opacity:`${opacity}`
+            }} className="search-container">
+                <div className="s-top">
+                    <h1>Search</h1>
+                    <div className="s-center">
+                    <input className="search-box" placeholder="Search" onChange={(e)=>setText(e.target.value)} type='text' value={text}></input>
+                    {/* <input></input> */}
+                    <button className="search-clear"> <Delete style={{color:'grey'}} size={size}/></button>
+                    </div>
+                </div>
+            <hr></hr>
+            <div>
+                <div className="s-bottom-title">
+                    <h3>Recent</h3>
+                    <button id="comment-btn" style={{color:'rgb(129, 198, 221)'}}>Clear All</button>
+                </div>
+            {/* <h5>{recents}</h5> */}
+            </div>
+            <ul id="s-ul">
+                {listRecents}
+            </ul>
+            </div>
+        )
+    }
+// The Animation in the bellow function has to many working components that causes a lagging in the application when clicking on the search button, an easier animation would be to just move the position of the search componenet from left to right, instead of triggering opacities and widths
+const[width,setWidth] = useState('0px')
     const[display,setDisplay] = useState('none')
     const[opacity,setOpacity] = useState('0')
     function searchHandler(){
-        if(width==='0px'){
-            setDisplay('')
-            setTimeout(()=>{
-                setWidth('200px')
-
-            },100)
-            setTimeout(()=>{
-                setWidth('200px')
-                setOpacity('1')
-
-            },150)
-            // setOpacity(appear=>!appear)
-            console.log('Click works')
+        if(display==='none'){
+            async function ani(){
+                setDisplay('')
+            }
+            ani().then(
+                
+                setTimeout(()=>{
+                    setWidth('350px')
+                    
+                },100),
+                setTimeout(()=>{
+                    setOpacity('1')
+                    // setWidth('200px')
+                    
+                },200)
+                )
+                // setOpacity(appear=>!appear)
+                console.log('Click works')
+                
+            }else if(display===''){
+                async function ani(){
+                    
+                setOpacity('0')
+            }
+            ani().then(
+                setWidth('0px'),
+                
+                setTimeout(()=>{
+                    
+                    setDisplay('none')
+                    
+                },200)
+                )
+                // setOpacity(appear=>!appear)
+            }
             
-        }else if(width==='200px'){
-            setWidth('0px')
-            setOpacity('0')
-            setTimeout(()=>{
-                
-                setDisplay('none')
-                
-            },100)
-            // setOpacity(appear=>!appear)
-        }
-
-
-
+            
+            
 
     }
+    
     return(
         <div id="n-con">
         {/* <h1>Nav</h1> */}
@@ -157,7 +171,8 @@ function Search(){
                 <li className="nav-li">
                     <button style={{
                         background:'none',
-                        border:'none'
+                        border:'none',
+                        cursor:'pointer'
                     }} onClick={()=>searchHandler()} className="nav-link" to={'/search'}><SearchIcon style={{color:'black'}} size={size}/>
                     
                     <h5 className="nav-title">Search</h5>
@@ -170,7 +185,7 @@ function Search(){
                     </NavLink>
                 </li>
                 <li className="nav-li">
-                    <NavLink className="nav-link" to={'/search'}><Reels style={{color:'black'}} size={size}/>
+                    <NavLink className="nav-link" to={'/reels'}><Reels style={{color:'black'}} size={size}/>
                     
                     <h5 className="nav-title">Reels</h5>
                     </NavLink>
@@ -217,4 +232,4 @@ function Search(){
     )
 }
 
-export default Nav
+export default memo(Nav)

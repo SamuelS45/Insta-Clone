@@ -1,4 +1,4 @@
-import React from "react";
+import React,{memo} from "react";
 import './stories.css'
 const story = [
         {
@@ -36,4 +36,4 @@ function Stories(){
 }
 
 
-export default Stories
+export default memo(Stories)

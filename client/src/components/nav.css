@@ -1,5 +1,8 @@
 #n-con{
+    /* position: absolute; */
     display: flex;
+    /* z-index: 2; */
+    background-color: rgb(246, 255, 252);
 }
 .nav{
     display: flex;

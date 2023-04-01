@@ -1,0 +1,24 @@
+
+#feed{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    left: 18vw;
+    height: auto;
+    /* border: 2px solid black; */
+    z-index: -1;
+}
+
+.explore-page{
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    grid-template-rows: 20vw 20vw 20vw;
+    grid-gap: 1rem;
+    /* grid-auto-flow: row; */
+    /* border: 2px solid black; */
+    /* width:80vw ; */
+    /* margin: 20px; */
+}

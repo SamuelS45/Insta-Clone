@@ -25,7 +25,7 @@ app.use('/submit', (req,res)=>{
     var user = JSON.stringify(data)
     //Writes to local storage
     fs.writeFile('./database/user.json', user, (err)=>{
-        if(err){console.log('erro file not created');}
+        if(err){console.log('error file not created');}
         console.log('file created')
     })
     // Stay on same page where data is being submitted
