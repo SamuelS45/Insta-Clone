@@ -16,7 +16,7 @@ function Reel({data}){
     // const[saveIcon,setSaveIcon]=useState(save)
     return(
         <div id='reel'>
-            <video>
+            <video controls>
                 <source src={vidSrc} type="video/mp4"></source>
                 <source src={ vidSrc } type="video/ogg" />
             </video>
