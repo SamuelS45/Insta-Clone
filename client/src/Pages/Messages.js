@@ -1,5 +1,5 @@
-import React from "react"
-import Profile from '../components/message/Profile'
+import React, { memo } from "react"
+import ProfileM from '../components/profiles/ProfileM'
 import './message.css'
 import {AiOutlineHeart as HeartOutline} from 'react-icons/ai'
 import {MdTagFaces as Face} from 'react-icons/md'
@@ -31,7 +31,7 @@ const data =[
 
 function Message(){
     const profile = data.map(item=><li>
-        <Profile data={item}/>
+        <ProfileM data={item}/>
         </li>)
     return(
         <div id="m-c">
@@ -54,4 +54,4 @@ function Message(){
     )
 }
 
-export default Message
+export default memo(Message)

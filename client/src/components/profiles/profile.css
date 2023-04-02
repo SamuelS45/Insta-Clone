@@ -1,0 +1,72 @@
+
+
+
+
+#p-img-c{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#p-img{
+    width: 100px;
+}
+#p-c{
+    border: 2px solid black;
+    display: flex;
+    width: 200px;
+}
+
+
+
+.story{
+    cursor: pointer;
+    /* background-image: url(); */
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    border: 1.5px solid rgb(255, 255, 255);
+}
+
+.s-item{
+    display: flex;
+    flex-direction: row;
+    /* flex-direction: row; */
+}
+#s-space{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid black; */
+}
+
+#gradient-ring{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
+    
+}
+
+#s-btn-delete{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+#post-profile{
+    cursor: pointer;
+    background-image: url();
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    border: 1.5px solid white;
+    /* position: relative; */
+}

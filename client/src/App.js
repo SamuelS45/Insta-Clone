@@ -9,6 +9,7 @@ import Reels from './Pages/Reels'
 import{Routes,Route,} from 'react-router-dom';
 import Explore from './Pages/Explore';
 import Message from './Pages/Messages';
+import Profile from './Pages/Profile';
 // import Home from './Pages/Home';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/explore' element={<Explore/>}/>
         <Route path='/reels' element={<Reels/>}/>
         <Route path='/message' element={<Message/>}/>
+        <Route path='/profile' element={<Profile/>}/>
       </Routes>
         {/* <button><Search/></button> */}
       </div>

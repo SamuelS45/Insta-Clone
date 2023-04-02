@@ -12,10 +12,10 @@ import{AiFillMessage as Message} from 'react-icons/ai'
 import {AiFillHeart as Heart} from 'react-icons/ai'
 import {FiPlusSquare as Plus} from 'react-icons/fi'
 import {AiOutlineMenu as Menu} from 'react-icons/ai'
-import {CgProfile as Profile} from 'react-icons/cg'
+import {CgProfile as ProfileIcon} from 'react-icons/cg'
 import './search.css'
 import {TiDeleteOutline as Delete} from 'react-icons/ti'
-
+import Profile from './profiles/ProfileS'
 // const size = 30
 
 
@@ -40,34 +40,23 @@ function Nav(){
         // useEffect(()=>{
         //     setData({})
         // },[])
-        const test=[
+        const data=[
             {
                 name:'lovesxx',
-                img:'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=600'
+                img:'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=600',
+                following:'following',
+                caption:'princess'
             },
             {
                 name:'love',
-                img:'https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&w=600'
+                img:'https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&w=600',
+                following:'following',
+                caption:'live life yeah'
             }
         ]
-        const listRecents = test.map(item=>
+        const listRecents = data.map(item=>
             <li id="s-li" key={item.toString}>
-            <div id="s-space">
-
-            <div className="s-item">
-                <div id="gradient-ring">
-                    <div className="story">
-                    {/* <img id="post-profile" alt="profile" src={item.profile}></img> */}
-                        <img id="post-profile"  src={item.img} alt={item.img.toString}></img>
-                </div>
-            </div>
-            </div>
-            <div>
-
-            {item.name}
-            </div>
-            <button id="s-btn-delete"><Delete size={size}/></button>    
-            </div>
+            <Profile data={item}/>
         </li>
         )
         const[text,setText]= useState()
@@ -197,10 +186,14 @@ const[width,setWidth] = useState('0px')
                     </NavLink>
                 </li>
                 <li className="nav-li">
-                    <NavLink className="nav-link" to={'/search'}><Heart style={{color:'black'}} size={size}/>
+                    <button style={{
+                        background:'none',
+                        border:'none',
+                        cursor:'pointer'
+                    }} onClick={()=>searchHandler()} className="nav-link" to={'/search'}><Heart style={{color:'black'}} size={size}/>
                     
                     <h5 className="nav-title">Notification</h5>
-                    </NavLink>
+                    </button>
                 </li>
                 <li className="nav-li">
                     <NavLink className="nav-link" to={'/search'}><Plus style={{color:'black'}} size={size}/>
@@ -209,7 +202,7 @@ const[width,setWidth] = useState('0px')
                     </NavLink>
                 </li>
                 <li className="nav-li">
-                    <NavLink className="nav-link" to={'/search'}><Profile style={{color:'black'}} size={size}/>
+                    <NavLink className="nav-link" to={'/profile'}><ProfileIcon style={{color:'black'}} size={size}/>
                     
                     <h5 className="nav-title">Profile</h5>
                     </NavLink>
