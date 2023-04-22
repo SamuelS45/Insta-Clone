@@ -1,0 +1,87 @@
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.search-container{
+    background-color: white;
+    /* z-index: -1; */
+    /* position: relative; */
+    border-right: 2px solid rgb(185, 185, 185);
+    width:500px;
+    height: 100vh;
+    transition: .5s;
+    /* border: 2px solid black; */
+}
+
+.search-box{
+    border:none;
+    /* width: 20px; */
+    height: 40px;
+    border-radius: 10px 0px 0px 10px;
+    width: 80%;
+    background-color: lightgrey;
+}
+.search-box:focus{
+    outline: none;
+}
+.s-center{
+    display: flex;
+
+}
+.search-clear{
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+    height: 40px;
+    background-color: lightgrey;
+    border: none;
+}
+
+.s-top{
+    display: flex;
+    flex-direction: column;
+    margin-left:20px;
+    /* align-items: center; */
+    justify-content: space-around;
+    /* border: 2px solid black; */
+    height: 150px;
+}
+
+
+.s-bottom-title{
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+}
+
+
+.s-item{
+    display: flex;
+    flex-direction: row;
+    /* flex-direction: row; */
+}
+#s-ul{
+    /* display: flex;
+    flex-direction: column; */
+    justify-content: space-around;
+    list-style-type:none;
+}
+#s-li{
+    /* width: 100%; */
+    /* border: 2px solid black; */
+    margin-top: 10px;
+    list-style-type:none;
+}
+#s-space{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid black; */
+}
+
+#s-btn-delete{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}

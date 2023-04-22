@@ -5,6 +5,16 @@ const data = require('./database/data.json')
 const path = require('path')
 const fs = require ('fs')
 // const { json } = require('stream/consumers')
+const cors = require('cors')
+const user = require('./routes/user')
+
+
+app.use(cors())
+app.use('/user', user)
+
+
+
+
 
 
 app.get('/data', (req,res)=> {
@@ -14,6 +24,8 @@ app.get('/data', (req,res)=> {
 app.get('/', (req,res)=>{
     res.sendFile(path.join(__dirname,'./index.html'))
 })
+
+
 
 app.use('/submit', (req,res)=>{
     //Collects data from http request using querry to extract from react
