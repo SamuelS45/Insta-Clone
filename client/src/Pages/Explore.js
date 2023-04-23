@@ -47,7 +47,7 @@ const data = [
 ]
 
 function Explore(){
-    const explore = data.map(item=><ExplorePanel data={item}/>)
+    const explore = data.map(item=><ExplorePanel key={item.toString} data={item}/>)
     return(
         <div id="feed">
 

@@ -20,7 +20,7 @@
     /* width: 20px; */
     height: 40px;
     border-radius: 10px 0px 0px 10px;
-    width: 80%;
+    width: 85%;
     background-color: lightgrey;
 }
 .search-box:focus{
@@ -52,6 +52,8 @@
 .s-bottom-title{
     display: flex;
     justify-content: space-between;
+    margin: 15px;
+    width: 90%;
     /* border: 2px solid black; */
 }
 

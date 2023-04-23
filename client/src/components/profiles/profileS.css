@@ -32,13 +32,15 @@
 .s-item{
     display: flex;
     flex-direction: row;
+    /* margin: 10px; */
     /* flex-direction: row; */
 }
-#s-space{
-    width: 100%;
+#s-container{
+    width: 90%;
     display: flex;
-    justify-content: space-around;
-    border: 2px solid black;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+    margin: 15px;
 }
 
 #gradient-ring{
@@ -69,4 +71,19 @@
     overflow: hidden;
     border: 1.5px solid white;
     /* position: relative; */
+}
+.s-details-container{
+
+    margin-left:10px ;
+}
+.s-details{
+    color: lightslategrey;
+    display: flex;
+}
+.s-delete-container{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
 }

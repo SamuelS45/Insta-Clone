@@ -11,11 +11,11 @@ function ExplorePanel({data}){
             <div id="e-overlay-icons">
                 <ul id="e-ul">
                     <li id="e-li">
-                        <Heart fill="white" class="e-icon" />
+                        <Heart fill="white" className="e-icon" />
                         <h5>{heartNum}</h5>
                         </li>
                     <li id="e-li">
-                        <Comment fill="white" class="e-icon"/>
+                        <Comment fill="white" className="e-icon"/>
                         <h5>{commentNum}</h5>
                         </li>
                 </ul>

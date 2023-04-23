@@ -56,10 +56,10 @@ const Data = [
 
 
 function Home(){
-    const posts = Data.map(post=><Post data={post}/>)
+    const posts = Data.map(post=><Post key={post.toString} data={post}/>)
     return(
     <div id='feed'>
-        <Stories/>
+        {/* <Stories/> */}
         {posts}
         {/* <PostD data={Data}/> */}
         {/* <Test data={data}/> */}

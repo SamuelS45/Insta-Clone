@@ -94,3 +94,28 @@ ul{
     /* width: 100px; */
     /* border: 2px solid black; */
 }
+
+
+.m-options{
+    width: 180px;
+    /* height: 100%; */
+    
+    position: absolute;
+    z-index: 3;
+    bottom: 100px;
+    left: 50px;
+    /* background-color: white; */
+    box-shadow: 1px 1px 5px rgb(158, 158, 158);
+    /* border: 2px solid black; */
+}
+.ul-options{
+    list-style-type: none;
+}
+.option-btn{
+    
+    background-color: white;
+    border: 2px lightgray;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+}

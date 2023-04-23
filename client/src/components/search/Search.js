@@ -12,20 +12,20 @@ function Search(){
         {
             name:'lovesxx',
             img:'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=600',
-            following:'following',
+            following:'Following',
             caption:'princess'
         },
         {
             name:'love',
             img:'https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&w=600',
-            following:'following',
+            following:'Following',
             caption:'live life yeah'
         }
     ]
     const listRecents = data.map(item=>
-        <li id="s-li" key={item.toString}>
-        {/* <Profile data={item}/> */}
-    </li>
+        <li id="s-li" key={item.name}>
+            <Profile data={item}/>
+        </li>
     )
     const[text,setText]= useState()
     return(
