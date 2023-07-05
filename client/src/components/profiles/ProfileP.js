@@ -8,36 +8,35 @@ function ProfileP({data}){
             display:'flex',
         }}>
 
-        <div id="p-img-c" style={{
+        <div className="img-c" style={{
             
         }}>
 
-        <img style={{
-            width:'200px'
+        <img className="p-img" style={{
+            // width:'200px'
         }} src={img} alt={img.toString}></img> 
         </div>
-        <div className="p-c">
+        <div className="profile-c">
             
-                <div className="name-p" style={{
+                <div className="first-p" style={{
                 }}>
 
-                    <h2>{username}</h2>
+                    <h4 className="user-name">{username}</h4>
                     <button className="edit-btn">Edit Profile</button>
-                    <button><Setting/></button>
+                    <button className="settings-btn"><Setting size={30}/></button>
                 </div>
-                <div className="info-p">
-                    <h1>{post}posts</h1>
-                    <h1>{followers}followers</h1>
-                    <h1>{following}following</h1>
+                <div className="second-p">
+                    <div className="p-h1"><p className="p-bold">{post} </p> &nbsp;posts</div>
+                    <div className="p-h1"><p className="p-bold">{followers}</p>&nbsp;followers</div>
+                    <div className="p-h1"><p className="p-bold">{following} </p>&nbsp;following</div>
                 </div>
             
-            <div style={{
+            <div className="third-p" style={{
                 display:'flex',
                 flexDirection:'column'
             }}>
-
-            <h3>{name}</h3>
-            <h3>{caption}</h3>
+            <p className="name">{name}</p>
+            <p className="captions">{caption}</p>
             </div>
         </div>
                 </div>

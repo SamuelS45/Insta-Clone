@@ -18,6 +18,7 @@ import{AiOutlineSetting as Setting} from 'react-icons/ai'
 import {BsBookmark as Save} from 'react-icons/bs'
 import {AiOutlineFieldTime as Activity} from 'react-icons/ai'
 import {TbMessageReport as Report} from 'react-icons/tb'
+import Create from "../create/Create";
 // import './search.css'
 
 // const size = 30
@@ -43,7 +44,8 @@ function Nav(){
 // The Animation in the bellow function has to many working components that causes a lagging in the application when clicking on the search button, an easier animation would be to just move the position of the search componenet from left to right, instead of triggering opacities and widths
     const[width,setWidth] = useState(18);
     const[toggle,setToggle] = useState(true);
-    const[menu,setMenu] = useState()
+    const[menu,setMenu] = useState();
+    const[create,setCreate] = useState()
     function searchHandler(){
         toggle?setToggle(toggle=>!toggle):setToggle(toggle=>!toggle)
         width!==18?setWidth(18):setWidth(6)
@@ -53,6 +55,10 @@ function Nav(){
     const menuHandler= ()=>{
         setMenu(menu=>!menu)
         console.log(menu)
+    }
+    const createHandler=()=>{
+        setCreate(create=>!create)
+
     }
     
     return(
@@ -82,6 +88,7 @@ function Nav(){
                     }} 
                     src={"https://cdn-icons-png.flaticon.com/512/87/87390.png"}
                     ></img>
+                    
                 </li>
         </ul>
             <ul>
@@ -166,15 +173,16 @@ function Nav(){
                     </button>
                 </li>
                 <li className="nav-li">
-                    <NavLink className="nav-link" to={'/search'}>
+                    <button onClick={()=>createHandler()} className="nav-link" id="menu-btn" >
                         <Plus style={{
-                        color:'black'
+                        color:'black',
+                        
                         }} size={size}/>
                     
                     <h5 className="nav-title" style={{
                         opacity:`${toggle?'1':'0'}`
                     }}>Create</h5>
-                    </NavLink>
+                    </button>
                 </li>
                 <li className="nav-li">
                     <NavLink className="nav-link" to={'/profile'}>
@@ -238,6 +246,36 @@ function Nav(){
                 <Search />
                 </div>
                 }
+                <div style={{
+                    display:`${create?'block':'none'}`,
+                    position:'absolute',
+                    zIndex:'2',
+                    width:'100vw',
+                    height:'100vh',
+                    
+                }}>
+                    <div style={{
+                        display:'flex',
+                        // justifyContent:'end',
+                        justifyContent:'right',
+                        width:'100vw',
+                        backgroundColor:'black',
+                        opacity:'0.5',
+                    }}>
+                    <button style={{
+                        color:'white',
+                        border:'none',
+                        marginRight:'50px',
+                        backgroundColor:'transparent',
+                        fontSize:'2rem',
+                        cursor:'pointer'
+                    }} onClick={()=>createHandler()}>X</button>
+                    </div>
+                    <div>
+                        <Create />
+                    </div>
+
+                </div>
         </div>
     )
 }

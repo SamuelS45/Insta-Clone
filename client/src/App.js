@@ -8,9 +8,10 @@ import Nav from './components/nav/Nav';
 import Reels from './Pages/Reels'
 import{Routes,Route,} from 'react-router-dom';
 import Explore from './Pages/Explore';
-import Message from './Pages/Messages';
-import Profile from './Pages/Profile';
+import Message from './Pages/messages/Messages';
+import Profile from './Pages/profile/Profile';
 import LogIn from './Pages/LogIn';
+import Create from './components/create/Create';
 // import Home from './Pages/Home';
 
 function App() {

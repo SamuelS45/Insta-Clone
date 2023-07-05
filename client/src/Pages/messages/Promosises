@@ -1,0 +1,18 @@
+import React from "react"
+import { useState } from "react"
+
+function code(){
+    const [id, setId] = useState(null)
+
+    const msgHandler = new Promise((idPass)=>{
+        setId(idPass)
+        
+    })
+    msgHandler.then((idPass)=>{
+        // id===null?console.log('none'):console.log(id)
+        console.log(idPass)
+    },(err)=>{
+        console.error(err)
+    })
+}
+

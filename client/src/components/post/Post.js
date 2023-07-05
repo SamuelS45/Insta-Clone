@@ -9,6 +9,11 @@ import {BsBookmark as Save} from 'react-icons/bs'
 import {BsBookmarkFill as SaveFill} from 'react-icons/bs'
 import {BsThreeDotsVertical as Menu} from 'react-icons/bs'
 import {MdTagFaces as Face} from 'react-icons/md'
+import axios from 'axios'
+
+//Note: This component can be rewritten utlising inline jsx triggers with toggle triggers for each animation and not using if else statements 
+
+
 
 // const data = {
     
@@ -22,7 +27,18 @@ import {MdTagFaces as Face} from 'react-icons/md'
 //     created:'2 HOURS AGO'
 // }
 function Post({data}){
-    const {profileImg, post, name, alt, likes, des , numComments, created} = data||{};
+    const {profileImg, img, name, alt, likes, des , numComments, createdAt, _id} = data||{};
+    const updateHeart = (post)=>{
+        console.log(_id)
+        // const info = {
+        //     method:'POST',
+        //     URL:`http://localhost:3001/feed/${post._id}`
+        // }
+        // const heart ={
+        //     heart:true
+        // }
+        // axios(info, heart).then().catch((err)=>{console.log(err)})
+    }
     const[heart, setHeart] = useState(false)
     const[imgHeart, setImgHeart] = useState('0')
     const[icon, setIcon] = useState()
@@ -31,6 +47,7 @@ function Post({data}){
     const[comment, setComment]=useState()
 
     const heartHandler=()=>{
+        updateHeart(_id)
         if(heart===false){
             setIcon(<HeartOutline size={30} style={{ }}/>)
             // setIcon('Fuck you')
@@ -79,20 +96,25 @@ function Post({data}){
     return(
         <>
         <div id="post">
+
             <div id="post-banner">
                 <div id="profile-container">
                     {/* <div id="profile-crop">
                     </div> */}
                     <div id="gradient-ring">
-                    <img id="post-profile" src={profileImg} alt={'Profile'}></img>
+
+                        <div className="profile-crop">
+                            <img className="post-profile" src={profileImg} alt={'Profile'}></img>
+                        </div>
 
                     </div>
-                    <h5 style={{cursor:'pointer',marginLeft:"1em"}}>{name}</h5>
+                    <h5 className="profile-name">{name}</h5>
                 </div>
                 <button id="menu-btn" ><Menu size={20} style = {{
                     transition:'.1s',
                     transform: 'rotate(90deg)'}}/></button>
             </div>
+
             <div onDoubleClick={heartImgHandler}>
                 <div>
                     <div id="heart-center">
@@ -101,10 +123,13 @@ function Post({data}){
                         {<Heart size={80} style={{
                             color:"grey"}}/>}
                     </div>
-                <img  id="post-post" src={post} alt={alt}></img>
+                <div className="post-crop">
+                <img  id="post-img" src={img} alt={alt}></img>
+                    </div>
                     </div>
                 </div>
             </div>
+
             <div id="post-btn">
                 <div id='post-btn-left'>
 
@@ -114,15 +139,16 @@ function Post({data}){
                 </div>
                 <button onClick={saveHandler} id="post-btn">{saveIcon}</button>
             </div>
+
             <div id="post-lower-banner">
                 <div id="post-cont">
                     <h5>{likes} likes</h5>
                     <div id="post-des" >
-                        <h5>{name}</h5>
-                        <p>{des}</p>
+                        <h5 className="post-name">{name}</h5>
+                        <p className="post-des">{des}</p>
                     </div>
                     <button id="comment-btn-show">View {numComments} comment...</button>
-                        <p id="time">{created}</p>
+                        <p id="time">{createdAt}</p>
                 </div>
                 <div id="comment-cont">
                     {/* <h1>{comment}</h1> */}

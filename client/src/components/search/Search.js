@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {TiDeleteOutline as Delete} from 'react-icons/ti'
 import './search.css'
-import Profile from '../profiles/ProfileS'
+import ProfileS from '../profiles/ProfileS'
 const size = 30
 function Search(){
     // const[data, setData]=useState([])
@@ -24,7 +24,7 @@ function Search(){
     ]
     const listRecents = data.map(item=>
         <li id="s-li" key={item.name}>
-            <Profile data={item}/>
+            <ProfileS data={item}/>
         </li>
     )
     const[text,setText]= useState()

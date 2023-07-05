@@ -1,7 +1,26 @@
 
 
+.search-crop{
+    /* border: 1.5px solid white; */
+    /* border: 2px solid black; */
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    overflow: hidden;
+}
 
-
+.search-profile{
+    cursor: pointer;
+    /* background-image: url(); */
+    /* border-radius: 100%; */
+    /* width: 3rem; */
+    height: 5rem;
+    position: relative;
+    top: 2px;
+    overflow: hidden;
+    /* border: 2px solid black; */
+    /* position: relative; */
+}
 #p-img-c{
     width: 100px;
     height: 100px;
@@ -26,7 +45,7 @@
     width: 3rem;
     height: 3rem;
     overflow: hidden;
-    border: 1.5px solid rgb(255, 255, 255);
+    /* border: 1.5px solid rgb(255, 255, 255); */
 }
 
 .s-item{
@@ -62,16 +81,7 @@
     border: none;
 }
 
-#post-profile{
-    cursor: pointer;
-    background-image: url();
-    border-radius: 100%;
-    width: 3rem;
-    height: 3rem;
-    overflow: hidden;
-    border: 1.5px solid white;
-    /* position: relative; */
-}
+
 .s-details-container{
 
     margin-left:10px ;

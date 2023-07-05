@@ -12,7 +12,9 @@ function ProfileS({data}){
                 <div id="gradient-ring">
                     <div className="story">
                         {/* <img id="post-profile" alt="profile" src={item.profile}></img> */}
-                        <img id="post-profile"  src={img} alt={name}></img>
+                        <div className="search-crop">
+                            <img className="search-profile"  src={img} alt={name}></img>
+                        </div>
                     </div>
                 </div>
                 <div className="s-details-container">

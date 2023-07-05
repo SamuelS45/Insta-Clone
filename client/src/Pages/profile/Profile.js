@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ProfileP from "../components/profiles/ProfileP";
-import ExplorePanel from "../components/explore/ExplorePanel";
+import ProfileP from "../../components/profiles/ProfileP";
+import ExplorePanel from "../../components/explore/ExplorePanel";
 import {BsBookmark as Save} from 'react-icons/bs'
 import {BsPersonBadge as Tag} from 'react-icons/bs'
 import {GrGrid as Grid} from 'react-icons/gr'
@@ -9,9 +9,9 @@ import { NavLink } from "react-router-dom";
 const dataUser =
     {
         img:'https://images.pexels.com/photos/16010173/pexels-photo-16010173.jpeg?auto=compress&cs=tinysrgb&w=600',
-        name:'et tu brutus',
-        username:'_Rome_w/_love_',
-        caption:'loving life without traitors',
+        name:'Brutus',
+        username:'Rome_w/_love',
+        caption:'Rome is life, the republic is life',
         msg:'Come lets go',
         post:'55',
         following:'109',
@@ -109,7 +109,7 @@ function Profile(){
         <div style={{
             width:'80%',
             backgroundColor:'lightgray',
-            height:'2px'
+            height:'1px'
         }} ></div>
         <div style={{
             display:'flex',
