@@ -1,4 +1,4 @@
-import React, { useState, memo } from "react";
+import React, { useState, memo, useContext, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import './nav.css'
 // import Search from "./Search";
@@ -19,6 +19,8 @@ import {BsBookmark as Save} from 'react-icons/bs'
 import {AiOutlineFieldTime as Activity} from 'react-icons/ai'
 import {TbMessageReport as Report} from 'react-icons/tb'
 import Create from "../create/Create";
+import CommentsModal from '../post/comments/Comments'
+import { Context } from "../post/Context";
 // import './search.css'
 
 // const size = 30
@@ -44,23 +46,27 @@ function Nav(){
 // The Animation in the bellow function has to many working components that causes a lagging in the application when clicking on the search button, an easier animation would be to just move the position of the search componenet from left to right, instead of triggering opacities and widths
     const[width,setWidth] = useState(18);
     const[toggle,setToggle] = useState(true);
+    // There shouldnt be only toggle because toggling only changes opcaity of menu title which the function is still available to click add block and none too
     const[menu,setMenu] = useState();
     const[create,setCreate] = useState()
     function searchHandler(){
         toggle?setToggle(toggle=>!toggle):setToggle(toggle=>!toggle)
         width!==18?setWidth(18):setWidth(6)
-        console.log(toggle)
+        // console.log(toggle)
     }
         // menu===true?console.log('working?'):window.onclick = ()=>{ setMenu(false)}
     const menuHandler= ()=>{
         setMenu(menu=>!menu)
-        console.log(menu)
+        // console.log(menu)
     }
     const createHandler=()=>{
         setCreate(create=>!create)
 
     }
-    
+    useEffect(()=>{
+
+    },[])
+    const {items, setItems} = useContext(Context)
     return(
         <div id="n-con">
         {/* <h1>Nav</h1> */}
@@ -273,6 +279,36 @@ function Nav(){
                     </div>
                     <div>
                         <Create />
+                    </div>
+
+                </div>
+                <div style={{
+                    display:`${items===null?'none':'block'}`,
+                    position:'absolute',
+                    zIndex:'2',
+                    width:'100vw',
+                    height:'100vh',
+                    
+                }}>
+                    <div style={{
+                        display:'flex',
+                        // justifyContent:'end',
+                        justifyContent:'right',
+                        width:'100vw',
+                        backgroundColor:'black',
+                        opacity:'0.5',
+                    }}>
+                    <button style={{
+                        color:'white',
+                        border:'none',
+                        marginRight:'50px',
+                        backgroundColor:'transparent',
+                        fontSize:'2rem',
+                        cursor:'pointer'
+                    }} onClick={()=>setItems(null)}>X</button>
+                    </div>
+                    <div>
+                        {items===null?'Hi':<CommentsModal/>}
                     </div>
 
                 </div>

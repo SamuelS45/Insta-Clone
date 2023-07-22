@@ -1,0 +1,50 @@
+#comment-card-con{
+    display: flex;
+    align-items: center;
+    height: 20%;
+    /* border: 2px solid rgb(201, 201, 201); */
+}
+
+
+#profile-crop{
+    border: 1.5px solid white;
+    /* border: 2px solid black; */
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.comment-section {
+    /* display: flex;
+    justify-content: center; */
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding: 10px;
+}
+.username-comment{
+    display: flex;
+
+}
+.comment {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.avatar {
+border-radius: 50%;
+margin-right: 10px;
+overflow: hidden;
+}
+
+.username {
+    margin-right:5px ;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.text {
+margin: 0;
+}

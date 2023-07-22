@@ -17,7 +17,7 @@ function Create(){
             width:'100vw',
             height:'100vh',
             position:'absolute',
-                    zIndex:'-1',
+            zIndex:'-1',
             }}>
 
             </div>
@@ -44,8 +44,8 @@ function Create(){
                 <div></div>
                 <Photo size={100}/>
             </div>
-                <label for="images" class="drop-container" id="dropcontainer" >
-                <span class="drop-title">Drag photos and videos here</span>
+                <label htmlFor="images" className="drop-container" id="dropcontainer" >
+                <span className="drop-title">Drag photos and videos here</span>
                 or
                     <input type="file" id="images" accept="image/*" required></input>
                 </label>

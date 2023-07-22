@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Post from '../components/post/Post'
 // import Test from '../components/Test'
-import Stories from "../components/Stories";
-import ToggleMenu from "../components/ToggleMenu";
-import Com from "../components/post/Comments";
+// import Stories from "../components/Stories";
+// import ToggleMenu from "../components/ToggleMenu";
+// import Com from "../components/post/Comments Test";
 import axios from 'axios'
+import CommentsModal from "../components/post/comments/Comments";
+import { Context, ContextProvider } from '../components/post/Context';
 // const Data = {
 //     id:{
 
@@ -68,21 +70,23 @@ const Data = [
 
 function Home(){
     const[data, setData]=useState([])
+    const[viewComment, setViewComment] = useState(true)
     const fetchFeed= async ()=>{
         const info = {
             method:"GET",
-            url:"http://192.168.1.4:3001/feed",
+            url:"http://127.0.0.1:5000/post",
+            // url:"http://192.168.1.2:3001/feed",
             // responseType:'stream'
         }
-        await axios(info).then((res)=>{setData(res.data)}).catch(
-            (err)=>{
-                console.log(err)
-            })
+        await axios(info).then((res)=>{setData(res.data)}).catch((err)=>{console.log(err)})
+    }
+    const commentModalHandler=()=>{
+        setViewComment(setViewComment=>!setViewComment)
     }
     useEffect(()=>{
         fetchFeed()
         // console.log(data)
-    },[data])
+    },[])
     const posts = data.map(post=><Post key={post.id} data={post}/>)
     // const list = data.map((post, index)=>
 
@@ -91,16 +95,10 @@ function Home(){
     //     </div>
         
     // )
+    
     return(
-    <div id='feed'>
-        {/* <Stories/> */}
-        {posts}
-        {/* <PostD data={Data}/> */}
-        {/* <Test data={data}/> */}
-        {/* <ToggleMenu/> */}
-        {/* <Com/> */}
-        {/* {list} */}
-        {/* {} */}
+        <div id='feed'>
+            {posts}
     </div>
     )
 }

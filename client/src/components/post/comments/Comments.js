@@ -1,6 +1,7 @@
-
-import React, { useEffect, useState, memo, useContext } from "react"
-import './post.css'
+import axios from "axios"
+import { useContext, useEffect, useState } from "react"
+import CommentCard from "./CommentCard"
+import './comments.css'
 import {AiFillHeart as Heart} from 'react-icons/ai'
 import {AiOutlineHeart as HeartOutline} from 'react-icons/ai'
 import {BiPaperPlane as Share} from 'react-icons/bi'
@@ -9,43 +10,55 @@ import {BsBookmark as Save} from 'react-icons/bs'
 import {BsBookmarkFill as SaveFill} from 'react-icons/bs'
 import {BsThreeDotsVertical as Menu} from 'react-icons/bs'
 import {MdTagFaces as Face} from 'react-icons/md'
-// import axios from 'axios'
-// import CommentsModal from "./comments/Comments"
-import { Context } from "./Context"
-//Note: This component can be rewritten utlising inline jsx triggers with toggle triggers for each animation and not using if else statements 
-
-
-
-// const data = {
-    
-//     profileImg: 'https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-//     name:'Olivia Young',
-//     post: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-//     likes:'1600',
-//     des:'A day in a life of a barrista',
-//     numComments:'2',
-//     heart: false,
-//     created:'2 HOURS AGO'
+import { Context } from "../Context"
+const data = {
+    profile_img:'img',
+    user_name:'img',
+    url:'img',
+    caption:"img",
+    user_id:"img",
+    likes:'20'
+}
+// export const PostContent=({data})=>{
+//     const{url}=data||{}
+//     return(
+//         <div id="post-content">
+//             <img src={url} alt="photo"></img>
+//         </div>
+//     )
 // }
-function Post({data}){
-    const {profile_img, url, user_name, alt, likes, des , numComments, created_at, id} = data||{};
+function Comments(){
+    // const{profile_img, name ,url, caption, user_id} = data||{}
+    const[comments, setComments] = useState()
     const[heart, setHeart] = useState(false)
     const[imgHeart, setImgHeart] = useState('0')
     const[icon, setIcon] = useState()
     const[save, setSave] = useState(false)
     // const[saveIcon, setSaveIcon] = useState()
     const[comment, setComment]=useState()
-    const[commentModal, setCommentModaL]=useState(false)
-    
-    // console.log(data)
-    
     const {items, setItems} = useContext(Context)
-    
-    const updateHeart = ()=>{
+    const[data, setData] = useState([])
+    const[commentData, setCommentData] = useState([])
+    const {profile_img, url, user_name, alt, likes, des , created_at, user_id, caption, id} = data[0]||{};
+
+    const getPost=()=>{
+        const info = {
+            method:'GET',
+            url:`http://127.0.0.1:5000/post/${items}`
+        }
+        axios(info).then((res)=>{setData(res.data)}).catch((err)=>console.log(err))
+        console.log(data)
+    }
+    const getComments=()=>{
+        const info = {
+            method:'GET',
+            url:`http://127.0.0.1:5000/comments/${items}`
+        }
+        axios(info).then((res)=>setCommentData(res.data)).catch((err)=>console.log(err))
     }
 
     const heartHandler=()=>{
-        updateHeart(id)
+        // updateHeart(post_id)
         if(heart===false){
             setIcon(<HeartOutline size={30} style={{ }}/>)
             // setIcon('Fuck you')
@@ -68,7 +81,7 @@ function Post({data}){
             // heartHandler()
             // setImgHeart()
         }
-
+        // console.log(items)
     }
     const saveHandler =()=>{
         save===false?setSave(save=> !save):setSave(save=> !save)
@@ -79,25 +92,37 @@ function Post({data}){
     const commentHandler =(e)=>{
         setComment(e.target.value)
     }
-
-    const commentContextHandler =()=>{
-        // setCommentModaL(commentModal=>!commentModal)
-        setItems(id)
-        // console.log(data)
-    }
     useEffect(()=>{
-        // console.log(profile_img)
-        // console.log(user_name)
         heartHandler()
         saveHandler()
-        // heartImgHandler()
+        getPost()
+        getComments()
+        
     },[])
+    // const listComments = comments.map(<CommentCard/>)
+    const listComments = commentData.map(items=><CommentCard data={items}/>)
     return(
-        <>
-        <div id="post">
+        <div id="comment-con">
+            <div style={{
+            backgroundColor:'black',
+            opacity:'0.5',
+            width:'100vw',
+            height:'100vh',
+            position:'absolute',
+            zIndex:'-1',
+            }}>
 
-            <div id="post-banner">
-                <div id="profile-container">
+            </div>
+        <div style={{
+            
+        }} id="comment-pan">
+            {/* <PostContent data={data.url}/> */}
+            <div id="post-contents">
+                <img id="comment-img" src={url} alt="something"></img>
+            </div>
+            <div id="post-comments">
+                <div id="user-section">
+            <div id="user-container">
                     {/* <div id="profile-crop">
                     </div> */}
                     <div id="gradient-ring">
@@ -109,25 +134,36 @@ function Post({data}){
                     </div>
                     <h5 className="profile-name">{user_name}</h5>
                 </div>
-                <button id="menu-btn" ><Menu size={20} style = {{
-                    transition:'.1s',
-                    transform: 'rotate(90deg)'}}/></button>
-            </div>
-
-            <div onDoubleClick={heartImgHandler}>
-                <div>
-                    <div id="heart-center">
-
-                    <div id="img-heart" style={{transform: `scale(${imgHeart})`}}>
-                        {<Heart size={80} style={{
-                            color:"grey"}}/>}
-                    </div>
-                <div className="post-crop">
-                <img  id="post-img" src={url} alt={alt}></img>
-                    </div>
-                    </div>
                 </div>
+            <div id="caption">
+
+            <div id="user-container">
+                    {/* <div id="profile-crop">
+                    </div> */}
+                    <div id="gradient-ring">
+
+                        <div className="profile-crop">
+                            <img className="post-profile" src={profile_img} alt={'Profile'}></img>
+                        </div>
+
+                    </div>
+                    <h5 className="profile-name">{user_name}</h5>
+                    <h5>{caption}</h5>
+                </div>
+                </div>
+                    
+                    {/* {listComments} */}
+            <div id="all-comments">
+                {/* {items} */}
+                {/* <h1>{items}</h1> */}
+                {/* <CommentCard/> */}
+
+                {listComments}
+
             </div>
+            <div id="post-tools-con">
+
+            <div id="post-tools">
 
             <div id="post-btn">
                 <div id='post-btn-left'>
@@ -137,11 +173,11 @@ function Post({data}){
                     <button id="post-btn"><Share size={30}/></button>
                 </div>
                 <button onClick={saveHandler} id="post-btn">{
-                // saveIcon
-                        save?<Save size={30}/>:<SaveFill size={30}/>
+                    // saveIcon
+                    save?<Save size={30}/>:<SaveFill size={30}/>
                 }</button>
             </div>
-
+            
             <div id="post-lower-banner">
                 <div id="post-cont">
                     <h5>{likes} likes</h5>
@@ -149,10 +185,7 @@ function Post({data}){
                         <h5 className="post-name">{user_name}</h5>
                         <p className="post-des">{des}</p>
                     </div>
-
-                    <button onClick={commentContextHandler} id="comment-btn-show">View {numComments} comment...</button>
-
-
+                    {/* <button id="comment-btn-show">View {numComments} comment...</button> */}
                         <p id="time">{created_at}</p>
                 </div>
                 <div id="comment-cont">
@@ -161,10 +194,13 @@ function Post({data}){
                     <input value={comment} onChange={commentHandler} id="comment" placeholder={'Add a comment'}></input>
                     <button id="comment-btn" style={{color:'rgb(129, 198, 221)'}}>Post</button>
                 </div>
+                </div>
             </div>
-        </div>
-        </>
+                </div>
+                    </div>
+                </div>
+            </div>
     )
 }
 
-export default memo(Post)
+export default Comments

@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, memo, useContext } from "react"
+import React, { useEffect, useState, memo } from "react"
 import './post.css'
 import {AiFillHeart as Heart} from 'react-icons/ai'
 import {AiOutlineHeart as HeartOutline} from 'react-icons/ai'
@@ -9,9 +9,8 @@ import {BsBookmark as Save} from 'react-icons/bs'
 import {BsBookmarkFill as SaveFill} from 'react-icons/bs'
 import {BsThreeDotsVertical as Menu} from 'react-icons/bs'
 import {MdTagFaces as Face} from 'react-icons/md'
-// import axios from 'axios'
-// import CommentsModal from "./comments/Comments"
-import { Context } from "./Context"
+import axios from 'axios'
+
 //Note: This component can be rewritten utlising inline jsx triggers with toggle triggers for each animation and not using if else statements 
 
 
@@ -28,24 +27,27 @@ import { Context } from "./Context"
 //     created:'2 HOURS AGO'
 // }
 function Post({data}){
-    const {profile_img, url, user_name, alt, likes, des , numComments, created_at, id} = data||{};
+    const {profileImg, img, name, alt, likes, des , numComments, createdAt, _id} = data||{};
+    const updateHeart = (post)=>{
+        console.log(_id)
+        // const info = {
+        //     method:'POST',
+        //     URL:`http://localhost:3001/feed/${post._id}`
+        // }
+        // const heart ={
+        //     heart:true
+        // }
+        // axios(info, heart).then().catch((err)=>{console.log(err)})
+    }
     const[heart, setHeart] = useState(false)
     const[imgHeart, setImgHeart] = useState('0')
     const[icon, setIcon] = useState()
     const[save, setSave] = useState(false)
-    // const[saveIcon, setSaveIcon] = useState()
+    const[saveIcon, setSaveIcon] = useState()
     const[comment, setComment]=useState()
-    const[commentModal, setCommentModaL]=useState(false)
-    
-    // console.log(data)
-    
-    const {items, setItems} = useContext(Context)
-    
-    const updateHeart = ()=>{
-    }
 
     const heartHandler=()=>{
-        updateHeart(id)
+        updateHeart(_id)
         if(heart===false){
             setIcon(<HeartOutline size={30} style={{ }}/>)
             // setIcon('Fuck you')
@@ -71,23 +73,22 @@ function Post({data}){
 
     }
     const saveHandler =()=>{
-        save===false?setSave(save=> !save):setSave(save=> !save)
-            // setSaveIcon(<Save size={30}/>)
-        
-            // setSaveIcon(<SaveFill size={30}/>)
+        if(save===false){
+            setSaveIcon(<Save size={30}/>)
+            setSave(save=> !save)
+        }else{
+            setSaveIcon(<SaveFill size={30}/>)
+            setSave(save=> !save)
+
+        }
+
     }
     const commentHandler =(e)=>{
         setComment(e.target.value)
     }
-
-    const commentContextHandler =()=>{
-        // setCommentModaL(commentModal=>!commentModal)
-        setItems(id)
-        // console.log(data)
-    }
     useEffect(()=>{
-        // console.log(profile_img)
-        // console.log(user_name)
+        console.log(profileImg)
+        console.log(name)
         heartHandler()
         saveHandler()
         // heartImgHandler()
@@ -103,11 +104,11 @@ function Post({data}){
                     <div id="gradient-ring">
 
                         <div className="profile-crop">
-                            <img className="post-profile" src={profile_img} alt={'Profile'}></img>
+                            <img className="post-profile" src={profileImg} alt={'Profile'}></img>
                         </div>
 
                     </div>
-                    <h5 className="profile-name">{user_name}</h5>
+                    <h5 className="profile-name">{name}</h5>
                 </div>
                 <button id="menu-btn" ><Menu size={20} style = {{
                     transition:'.1s',
@@ -123,7 +124,7 @@ function Post({data}){
                             color:"grey"}}/>}
                     </div>
                 <div className="post-crop">
-                <img  id="post-img" src={url} alt={alt}></img>
+                <img  id="post-img" src={img} alt={alt}></img>
                     </div>
                     </div>
                 </div>
@@ -132,28 +133,22 @@ function Post({data}){
             <div id="post-btn">
                 <div id='post-btn-left'>
 
-                    <button onClick={heartHandler} id="post-btn">{icon}</button>
-                    <button id="post-btn"><Comment size={30}/></button>
-                    <button id="post-btn"><Share size={30}/></button>
+                <button onClick={heartHandler} id="post-btn">{icon}</button>
+                <button id="post-btn"><Comment size={30}/></button>
+                <button id="post-btn"><Share size={30}/></button>
                 </div>
-                <button onClick={saveHandler} id="post-btn">{
-                // saveIcon
-                        save?<Save size={30}/>:<SaveFill size={30}/>
-                }</button>
+                <button onClick={saveHandler} id="post-btn">{saveIcon}</button>
             </div>
 
             <div id="post-lower-banner">
                 <div id="post-cont">
                     <h5>{likes} likes</h5>
                     <div id="post-des" >
-                        <h5 className="post-name">{user_name}</h5>
+                        <h5 className="post-name">{name}</h5>
                         <p className="post-des">{des}</p>
                     </div>
-
-                    <button onClick={commentContextHandler} id="comment-btn-show">View {numComments} comment...</button>
-
-
-                        <p id="time">{created_at}</p>
+                    <button id="comment-btn-show">View {numComments} comment...</button>
+                        <p id="time">{createdAt}</p>
                 </div>
                 <div id="comment-cont">
                     {/* <h1>{comment}</h1> */}
