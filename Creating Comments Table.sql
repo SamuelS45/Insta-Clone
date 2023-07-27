@@ -13,10 +13,15 @@ PRIMARY KEY(`id`)
 
 
 
-INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('f06052a6-2252-11ee-8d22-089798700233','1','That piza looks dope bruv');
-INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('efda020f-2252-11ee-8d22-089798700233','1','Did you go to italy?');
-INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('f06052a6-2252-11ee-8d22-089798700233','2','How is Spain?');
-INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('20fd4fed-2229-11ee-8d22-089798700233','2','That Looks Beutiful');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('4','1','That piza looks dope bruv');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('3','1','Did you go to italy?');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('2','1','I wanna go');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('6','1','Wow');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('5','1','Nice pepronni');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('1','1','Yep');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('1','1','I miss pizzaaa');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('4','2','How is Spain?');
+INSERT INTO `comments`(user_id,post_id,comment_text) VALUES('3','2','That Looks Beutiful');
 
 
 #INSERT INTO `comments`()
