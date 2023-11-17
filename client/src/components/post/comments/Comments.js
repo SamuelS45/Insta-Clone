@@ -11,14 +11,28 @@ import {BsBookmarkFill as SaveFill} from 'react-icons/bs'
 import {BsThreeDotsVertical as Menu} from 'react-icons/bs'
 import {MdTagFaces as Face} from 'react-icons/md'
 import { Context } from "../Context"
-const data = {
-    profile_img:'img',
-    user_name:'img',
-    url:'img',
-    caption:"img",
-    user_id:"img",
-    likes:'20'
-}
+// const data = [
+//     {
+//     profile_img:'img',
+//     user_name:'img',
+//     url:'img',
+//     caption:"img",
+//     user_id:"img",
+//     likes:'20'
+//     }
+// ];
+
+const commentData = [
+    {
+        id:1,
+        name:'Jake',
+        profile_img:'https://images.unsplash.com/photo-1699871128680-70d26ce4d3d8?q=80&w=2052&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        user_id:1,
+        post_id:1,
+        comment_text:'Lorem.........................',
+        created_at:'15/10/2023',
+    }
+]
 // export const PostContent=({data})=>{
 //     const{url}=data||{}
 //     return(
@@ -36,11 +50,26 @@ function Comments(){
     const[save, setSave] = useState(false)
     // const[saveIcon, setSaveIcon] = useState()
     const[comment, setComment]=useState()
-    const {items, setItems} = useContext(Context)
-    const[data, setData] = useState([])
-    const[commentData, setCommentData] = useState([])
-    const {profile_img, url, user_name, alt, likes, des , created_at, user_id, caption, id} = data[0]||{};
 
+    
+    const[data, setData] = useState([])
+    // When using Server delete commentData and add and array
+    // const[commentData, setCommentData] = useState([])
+    const[commentData, setCommentData] = useState([
+        {
+            id:1,
+            name:'Jake',
+            profile_img:'https://images.unsplash.com/photo-1699871128680-70d26ce4d3d8?q=80&w=2052&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            user_id:1,
+            post_id:1,
+            comment_text:'Lorem.........................',
+            created_at:'15/10/2023',
+        }
+    ])
+    const {profile_img, url, user_name, alt, likes, des , created_at, user_id, caption, id} = data[0]||{};
+    
+    const {items, setItems} = useContext(Context)
+    
     const getPost=()=>{
         const info = {
             method:'GET',
@@ -54,7 +83,8 @@ function Comments(){
             method:'GET',
             url:`http://127.0.0.1:5000/comments/${items}`
         }
-        axios(info).then((res)=>setCommentData(res.data)).catch((err)=>console.log(err))
+        // Uncomment thhis line when 
+        // axios(info).then((res)=>setCommentData(res.data)).catch((err)=>console.log(err))
     }
 
     const heartHandler=()=>{
@@ -101,6 +131,7 @@ function Comments(){
     },[])
     // const listComments = comments.map(<CommentCard/>)
     const listComments = commentData.map(items=><CommentCard data={items}/>)
+    // With a server add items context for RestAPI retrival of data
     return(
         <div id="comment-con">
             <div style={{

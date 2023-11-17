@@ -1,7 +1,9 @@
-import React from "react"
+import React,{useContext} from "react"
 import{AiOutlineSetting as Setting} from 'react-icons/ai'
 import './profileP.css'
+import { Context} from "../../Pages/profile/Context"
 function ProfileP({data}){
+    // const {name, setName} = useContext(Context)
     const{img,name,caption,post,followers,following,username} = data||{}
     return(
         <div className="c" style={{

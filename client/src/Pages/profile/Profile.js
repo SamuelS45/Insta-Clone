@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ProfileP from "../../components/profiles/ProfileP";
 import ExplorePanel from "../../components/explore/ExplorePanel";
 import {BsBookmark as Save} from 'react-icons/bs'
@@ -6,6 +6,8 @@ import {BsPersonBadge as Tag} from 'react-icons/bs'
 import {GrGrid as Grid} from 'react-icons/gr'
 import './profilePage.css'
 import { NavLink } from "react-router-dom";
+import { ContextProvider } from "./Context";
+import { userProfile } from "../../App";
 const dataUser =
     {
         img:'https://images.pexels.com/photos/16010173/pexels-photo-16010173.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -84,6 +86,8 @@ function Profile(){
     const post = data.map(item=><ExplorePanel key={item.toString} data={item}/>)
     const saved = savedData.map(item=><ExplorePanel key={item.toString} data={item}/>)
     const tagged = taggedData.map(item=><ExplorePanel key={item.toString} data={item}/>)
+    const user = useContext(userProfile)
+
     const[page, setPage] = useState(post)
     const[toggle, setToggle]=useState(1)
     const isActive = (activePage)=>{
@@ -103,7 +107,7 @@ function Profile(){
 
         <div>
             {/* <h1>Profile</h1> */}
-            <ProfileP data={dataUser}/>
+                <ProfileP data={user}/>
         </div>
         {/* <hr></hr> */}
         <div style={{

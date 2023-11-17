@@ -3,6 +3,7 @@ import  ReactDOM  from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import App from "./App";
 import { ContextProvider } from './components/post/Context';
+
 // const Data = {
 // import Post from "./components/Post";
 
@@ -15,7 +16,7 @@ root.render(
     {/* <h1>Hello World </h1> */}
     <HashRouter>
     <ContextProvider>
-        <App/>
+            <App/>
     </ContextProvider>
     </HashRouter>
     </div>
