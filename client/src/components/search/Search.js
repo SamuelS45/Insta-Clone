@@ -10,13 +10,13 @@ function Search(){
     // },[])
     const data=[
         {
-            name:'loves_u',
+            name:'Jazz_45',
             img:'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=600',
             following:'Following',
             caption:'princess'
         },
         {
-            name:'pretty_gurl',
+            name:'somewhere_123',
             img:'https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&w=600',
             following:'Following',
             caption:'live life yeah'

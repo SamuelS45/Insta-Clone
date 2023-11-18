@@ -11,7 +11,7 @@ const dataUser =
         img:'https://images.pexels.com/photos/16010173/pexels-photo-16010173.jpeg?auto=compress&cs=tinysrgb&w=600',
         name:'Brutus',
         username:'Rome_w/_love',
-        caption:'Rome is life, the republic is life',
+        caption:'Rome is life, travel and live',
         msg:'Come lets go',
         post:'55',
         following:'109',
