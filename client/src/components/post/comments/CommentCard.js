@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import {BsThreeDotsVertical as Menu} from 'react-icons/bs'
 function CommentCard({data}){
     // Get Rid of Name and Profile in data destructured bellow when using server
-    const{id,user_id,post_id,comment_text,created_at,   name, profile_img} = data||{}
+    const{id, user_id, post_id,comment_text,created_at,   name, profile_img} = data||{}
     // When using serer user bellow State to call Rest API and load user data for each user
     const[userData, setUserData] = useState([])
     // const{name,profile_img} = userData[0] || {}

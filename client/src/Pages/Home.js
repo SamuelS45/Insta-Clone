@@ -75,7 +75,7 @@ const Data = [
 // ]
 
 function Home(){
-    const[data, setData]=useState([])
+    const[data, setData]=useState(Data)
     const[viewComment, setViewComment] = useState(true)
     const fetchFeed= async ()=>{
         const info = {

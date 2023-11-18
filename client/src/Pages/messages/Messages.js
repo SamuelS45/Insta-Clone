@@ -14,7 +14,7 @@ const chats =[
     {
         img:'https://images.pexels.com/photos/16010173/pexels-photo-16010173.jpeg?auto=compress&cs=tinysrgb&w=600',
         name:'Samuel',
-        msg:'Come lets go',
+        msg:'What time are we meeting?',
         time:'55 min',
         id:'John'
         
@@ -22,7 +22,7 @@ const chats =[
     {
         img:'https://images.pexels.com/photos/935789/pexels-photo-935789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name:'Samuel',
-        msg:'Come lets go',
+        msg:'Come lets go...',
         time:'55 min',
         id:'Matthew'
         
